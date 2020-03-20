@@ -7,8 +7,7 @@ library(ggplot2)
 
 #
 #grab data from https://covidtracking.com/api/states/daily.csv
-#setwd("~/Documents/Current Projects/COVID-19/testing")
-#dt <- read.csv("states-daily.csv")
+
 dt <- read.csv("https://covidtracking.com/api/states/daily.csv")
 dt$date <-as.Date(trunc(strptime(dt$dateChecked,format="%Y-%m-%d", tz="EST"),"day"))
 
@@ -32,7 +31,4 @@ pa <- dt %>%
   
   gg
 
-pa <- dt %>%
-ungroup() %>%
-dplyr::filter(state == "PA")
-pa$positive[1] + pa$negative[1]
+
