@@ -20,7 +20,8 @@ pa <- dt %>%
   ungroup() %>%
   dplyr::filter(state == "PA")  # set a horizontal line for your state of reference
 
-
+# plot the number of tests per state over time
+# size of point indicates the test-positive rate
   gg <- ggplot(dt, aes(x=date,y=tests,size=test_pos,color=state)) +
     geom_point() + 
     scale_y_continuous(trans='log10') +
