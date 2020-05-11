@@ -54,7 +54,7 @@ for(k in 1:sims){
 
   for(ts in 2:T){
   
-  out <- sir_step(S[ts-1], E[ts-1], I1[ts-1], I2[ts-1], R[ts-1], N, beta, theta,gamma_I1I2,gamma_I2R, delta.t) # call to SIR step function above
+  out <- sir_step(S[ts-1], E[ts-1], I1[ts-1], I2[ts-1], R[ts-1], N, beta, theta,gamma_I1I2,gamma_I2R, delta.t=1) # call to SIR step function above
   
   S <- c(S,out[1])  # update state
   E <- c(E,out[2])  # update state
