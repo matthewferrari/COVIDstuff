@@ -21,7 +21,7 @@ shinyUI(pageWithSidebar(
     sliderInput("R0", h3("R0"),
                 min = 1.5, max = 4, value = 2, step=0.25),  
     sliderInput("ppn_immune", h3("Proportion Immune"),
-                min = .5, max = 1, value = .85, step=0.05),
+                min = 0, max = .5, value = .15, step=0.05),
     sliderInput("sensitivity", h3("Testing sensitivity"),
                 min = .9, max = 1, value = .99, step=0.05),
     sliderInput("specificity", h3("Testing specificity"),
