@@ -35,7 +35,7 @@ output$Time_to_detection_plot <- renderPlot({
   false_pos <- matrix(NA,T,sims)
   
   #R0 <- 2   # R0
-  RE <- R0()*ppn_sympt()  # RE assuming some fraction of population is already immune
+  RE <- R0()*(1-ppn_immune())  # RE assuming some fraction of population is already immune
   beta <- RE * (1/9)  # calculate Beta
   theta <- 1/5  # 5 days from infection to infectious
   gamma_I1I2 <- 1/2 # 2 days asymptomatic infectious
@@ -49,7 +49,7 @@ output$Time_to_detection_plot <- renderPlot({
   
   
   #
-  S <- matrix(round(pop_size()*ppn_immune()),1,sims)  # start with 50K * 0.85 susceptible
+  S <- matrix(round(pop_size()*(1-ppn_immune())),1,sims)  # start with 50K * 0.85 susceptible
   E <- matrix(0,1,sims)
   I1 <- matrix(5,1,sims)                 # start with 5 asymptomatic infectious
   I2 <- matrix(0,1,sims)
