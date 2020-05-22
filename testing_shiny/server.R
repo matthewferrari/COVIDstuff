@@ -36,7 +36,7 @@ output$Time_to_detection_plot <- renderPlot({
   
   #R0 <- 2   # R0
   RE <- R0()*ppn_sympt()  # RE assuming some fraction of population is already immune
-  beta <- R0() * (1/9)  # calculate Beta
+  beta <- RE * (1/9)  # calculate Beta
   theta <- 1/5  # 5 days from infection to infectious
   gamma_I1I2 <- 1/2 # 2 days asymptomatic infectious
   gamma_I2R <- 1/7 # 7 days infectious (this is probably too short)
