@@ -66,7 +66,7 @@ plot_metrics <- function(introductions, ppn_sympt){
   
 library(RColorBrewer)
 pal <- brewer.pal(4,"Dark2")
-par(mfcol = c(4,6))
+par(mfcol = c(4,12))
 par(mar=c(1,2,2,2)+0.1)
 
 ct <- c(FALSE, TRUE)  # effectiveness of contact tracing
@@ -74,7 +74,7 @@ thresh <-c(10000,150) # threshold to trigger imposition of NPIs (very high numbe
                       # this is in terms of isolation and quarantine rooms occupied
 tst <- c(0,100,300) # daily asymptomatic tests
 
-for(cc in 2){
+for(cc in 1:2){
 for(tt in 1:2){
 for(hh in 1:3){
 
