@@ -85,7 +85,7 @@ case <- matrix(NA,T,sims) # storage for daily cases
 distancing_reduction <- 0.5 # if trigger is crossed, NPIs are imposed and transmission is reduced by this fraction
 
 R0 <- 2.5   # R0
-RE <- R0  # RE assuming some fraction of population is already immune
+RE <- R0*.85  # RE assuming some fraction of population is already immune
 beta.normal <- RE * (1/9)  # calculate Beta
 beta.outbreak <- RE * (1/9) * (1-distancing_reduction)   # calculate Beta
 beta_vec <- rep(beta.normal,sims)
