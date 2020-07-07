@@ -153,6 +153,7 @@ for(ts in 2:T){
 inf <- I1+I2   # total infectious
 case <- new_cases # daily cases
 
+# plot prevalence  
 ifelse(hh==1 & cc==1 & tt == 1, lb<-TRUE, lb<-FALSE)
 inf.bd <- apply(inf,1,quantile, probs=c(.05,.95))
 plot(NA,xlim=c(0,100),ylim=c(0,4000),xlab="days from start",ylab="active infections",axes=F)
@@ -160,18 +161,21 @@ polygon(c(1:100,100:1),c(inf.bd[1,],rev(inf.bd[2,])),col=pal[1],border=pal[1])
 axis(1,labels=FALSE)
 axis(2,labels=lb)
 
+# plot daily symptomatic cases  
 sympt.bd <- apply(symptrep,1,quantile, probs=c(.05,.95))
 plot(NA,xlim=c(0,100),ylim=c(0,20),xlab="days from start",ylab="symptomatic cases",axes=F)
 polygon(c(1:100,100:1),c(sympt.bd[1,],rev(sympt.bd[2,])),col=pal[2],border=pal[2])
 axis(1,labels=FALSE)
 axis(2,labels=lb)
 
+# plot asymptomatic test positives  
 test.bd <- apply(true_test_positives,1,quantile, probs=c(.05,.95))
 plot(NA,xlim=c(0,100),ylim=c(0,20),xlab="days from start",ylab="asymptomatic test pos",axes=F)
 polygon(c(1:100,100:1),c(test.bd[1,],rev(test.bd[2,])),col=pal[3],border=pal[3])
 axis(1,labels=FALSE)
 axis(2,labels=lb)
 
+# plot students in isolation and quarantine -- assumes 100% compliance  
 quar.bd <- apply(quarantine+isolation,1,quantile, probs=c(.05,.95))
 plot(NA,xlim=c(0,100),ylim=c(0,1500),xlab="days from start",ylab="students in isol/quar",axes=F)
 polygon(c(1:100,100:1),c(quar.bd[1,],rev(quar.bd[2,])),col=pal[4],border=pal[4])
