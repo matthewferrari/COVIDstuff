@@ -135,10 +135,11 @@ for(ts in 2:T){
   quarantine <- rbind(quarantine, apply(new_contacts[(max(1,ts-14)):ts,],2,sum) ) # quarantine for 14 days
   #browser()
   ####################################################################################
-  # is 
+  # is the number in isolation/quarantine greater than your qi_trigger value? (or has it ever been)
   qi_trigger <- qi_trigger + ((isolation[ts,] + quarantine[ts,]) > thresh[cc] | qi_trigger)
+  # note that qi_trigger also marks the time step at which the trigger is reached
   
-  test_trigger <- true_test_positives[ts,] > 1
+  #test_trigger <- true_test_positives[ts,] > 1 # can set alternate triggers based on # positive tests, prevalence, etc.
   #trigger <- pmax(trigger,(apply(out[,9:10],1,sum)>0),)
   #if ... 
   beta_vec <- rep(beta.normal,sims)
